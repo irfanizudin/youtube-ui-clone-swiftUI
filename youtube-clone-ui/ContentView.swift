@@ -9,7 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HomeView()
+        ZStack{
+            TabView{
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                ShortView()
+                    .tabItem {
+                        Image(systemName: "play.square")
+                        Text("Shorts")
+                    }
+                UploadView()
+                    .tabItem {
+                        Image(systemName: "plus.circle")
+                            .font(.headline)
+                            .imageScale(.large)
+                    }
+                SubscriptionsView()
+                    .tabItem {
+                        Image(systemName: "play.tv")
+                        Text("Subscriptions")
+                    }
+                LibraryView()
+                    .tabItem {
+                        Image(systemName: "play.rectangle.on.rectangle")
+                        Text("Library")
+                    }
+
+                
+            }
+            .accentColor(.red)
+        }
     }
 }
 
@@ -61,5 +93,29 @@ struct HomeView: View {
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+}
+
+struct ShortView : View {
+    var body: some View{
+        Text("Shorts")
+    }
+}
+
+struct UploadView : View {
+    var body: some View {
+        Text("Upload")
+    }
+}
+
+struct SubscriptionsView : View {
+    var body: some View {
+        Text("Subscriptions")
+    }
+}
+
+struct LibraryView : View {
+    var body: some View {
+        Text("Library")
     }
 }
